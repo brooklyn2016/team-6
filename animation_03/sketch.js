@@ -43,8 +43,6 @@ function draw() {
 }
 }
 
-function keyPressed() {
-  if(keyCode == RIGHT_ARROW){
+function mousePressed() {
     drw = true;
-  }
 }
