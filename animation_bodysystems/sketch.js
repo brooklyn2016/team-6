@@ -1,6 +1,6 @@
 var thestuff = new Array(20);
 var thenum = new Array(20);
-var foodPics, fork, back, calcur;
+var foodPics, fork, back, calcur, curfood;
 var countdown;
 var currentTime;
 var isRunning = true;
@@ -8,7 +8,10 @@ var playwinsound= false;
 
 function preload() {
   back = loadImage("177513940.jpg");
-  foodPics = [loadImage("egg_PNG49.png"), loadImage("bread-free-images-at-clker-com-vector-clip-art-online-royalty-Zs4b4W-clipart.png"), loadImage("Bacon.png"), loadImage("Sausage-Free-PNG-Image.png")];
+  foodPics = [loadImage("egg_PNG49.png"), loadImage("bread.png"), loadImage("Bacon.png"), 
+  loadImage("Sausage.png"), loadImage("Shredded-Cheese.png"), loadImage("juice_PNG7183.png"), 
+  loadImage("milk.png"), loadImage("em_butter.png"), loadImage("bagel.png"), loadImage("banana.png"),
+  loadImage("strawberry.png")];
   fork = loadImage("fork_PNG3063.png");
 }
 
@@ -17,9 +20,10 @@ function setup() {
   background(back);
   fill(0);
   calcur = 0;
+  curfood = "NONE"
   for(var i =0;i<thestuff.length;i++)
   {
-    thenum[i] = floor(random(4))
+    thenum[i] = floor(random(foodPics.length))
     thestuff[i] = new FoodDraw(foodPics[thenum[i]]);
   }
   
@@ -42,17 +46,50 @@ function draw() {
       if(thestuff[i].killme==1) {
         thestuff.splice(i, 1);
         if(thenum[i] == 0){
-          calcur = calcur + 91
+          calcur = calcur + 91;
+          curfood = "Whole Egg";
         }
         if(thenum[i] == 1){
-          calcur = calcur + 64
+          calcur = calcur + 64;
+          curfood = "Toast (White)";
         }
         if(thenum[i] == 2){
-          calcur = calcur + 103
+          calcur = calcur + 103;
+          curfood = "Pork Bacon";
         }
         if(thenum[i] == 3){
-          calcur = calcur + 229
+          calcur = calcur + 229;
+          curfood = "Pork Sausage";
         }
+        if(thenum[i] == 4){
+          calcur = calcur + 110;
+          curfood = "Shredded Cheese";
+        }
+        if(thenum[i] == 5){
+          calcur = calcur + 112;
+          curfood = "Orange Juice";
+        }
+        if(thenum[i] == 6){
+          calcur = calcur + 102;
+          curfood = "Lowfat Milk";
+        }
+        if(thenum[i] == 7){
+          calcur = calcur + 120;
+          curfood = "English Muffin";
+        }
+        if(thenum[i] == 8){
+          calcur = calcur + 350;
+          curfood = "Bagel";
+        }
+        if(thenum[i] == 9){
+          calcur = calcur + 105;
+          curfood = "Banana";
+        }
+        if(thenum[i] == 10){
+          calcur = calcur + 49;
+          curfood = "Strawberry"
+        }
+        
       }
     }
 
@@ -68,6 +105,7 @@ function draw() {
   if(calcur>=1500) {
     fill(255, 0, 0);
     text("YOU WON!!!!", width/2, height/2);
+    text("TOTAL CALORIES: " + str(calcur), width/2, height/2 + 25)
     countdown=30;
     if(playwinsound==false) {
       playwinsound=true;
@@ -76,9 +114,10 @@ function draw() {
   {
     fill(0);
     //text("FOOD REMAINING: " + thestuff.length, 20, 20);
-    text("CURRENT CALORIES: " + str(calcur),20, 20);
-    text("CALORIE GOAL: 1500", 20, 45);
-    text("TIME REMAINING: " + floor(countdown), 20, 70);
+    text("CURRENT FOOD: " + curfood + "!", 20, 20)
+    text("CURRENT CALORIES: " + str(calcur),20, 45);
+    text("CALORIE GOAL: 1500", 20, 70);
+    text("TIME REMAINING: " + floor(countdown), 20, 95);
   }
   
 }
