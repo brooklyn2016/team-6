@@ -94,7 +94,17 @@ app.get('/homepage', function(req,res){
 })
 
 app.get('/leaderboard', function(req,res){
-	
+User.find(function(err, users, count){
+		var sorted = [];
+		for (var i=0; i<users.length; i++){
+			sorted.push(users[i].score);
+		}
+		sorted.sort();
+		sorted.reverse();
+		console.log(sorted);
+		});
 })
+
+
 //
 app.listen(3000);
