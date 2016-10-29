@@ -40,6 +40,7 @@ app.post('/register', function(req, res) {
 	tempObj.birthday = req.body.birthday;
 	tempObj.school = req.body.school;
 	*/
+	console.log(req.body.age);
 	new User({
 		name: req.body.name,
 		age: req.body.age,
