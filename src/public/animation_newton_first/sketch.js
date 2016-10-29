@@ -18,7 +18,7 @@ function setup() {
   rect(width/2 -200, (height/2 - 50), 500,65)
   textSize(50);
   fill('BLUE');
-  text("CLICK THE MOUSE!", width/2 - 200, height/2);
+  text("CLICK THE BALL!", width/2 - 200, height/2);
 }
 
 function draw() {
