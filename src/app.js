@@ -48,7 +48,7 @@ app.post('/register', function(req, res) {
 		password: req.body.password,
 		score : 0,
 		progress : 0,
-		lessonCompleted : []
+		lessons : []
 	}).save(function(err, users, count){
 		//console.log(users._id);
 	//	console.log(users);
@@ -85,9 +85,9 @@ app.post('/login', function(req,res){
 			res.redirect('/login');
 		}
 		else{
-			console.log(users);
+			//console.log(users);
 			req.session.ids = users[0]._id;
-			console.log(req.session);
+			//console.log(req.session);
 			res.redirect('/homepage');
 		}
 		});
@@ -102,7 +102,7 @@ function compare(a,b) {
 
 
 app.get('/homepage', function(req,res){
-	console.log(req.session);
+	//console.log(req.session);
 	User.find(function(err, users, count){
 		//console.log(users);
 	});
@@ -115,14 +115,13 @@ app.get('/leaderboard', function(req,res){
 	User.find(function(err, users, count){
 		var sorted = users.sort(compare);
 		sorted.reverse();
-		var size = 0;
-		res.render('leaderboard', {sorted:sorted,layout:'layout2', size: sorted.length});
+		res.render('leaderboard', {sorted:sorted,layout:'layout2'})
 		});
 })
 
 app.get('/NewtonsLawofMotion', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('newton', {progress:users[0].progress,layout:'layout2'});
+			res.render('newton', {progress:users[0].progress,layout:'layout2',lock:users[0].lessons});
 		});
 })
 app.get('/NewtonsLawofMotion/Lesson1', function(req,res){
@@ -132,8 +131,13 @@ app.get('/NewtonsLawofMotion/Lesson1', function(req,res){
 })
 app.get('/NewtonsLawofMotion/Lesson2', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('newton', {progress:users[0].progress,layout:'layout2'});
-		});
+			if(users[0].lessons.indexOf('newton1') >= 0){
+				res.render('newton', {progress:users[0].progress,layout:'layout2'});
+			}
+			else{
+				res.redirect('/NewtonsLawofMotion')
+			}
+	});
 })
 app.get('/Kinesiology', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
@@ -176,7 +180,19 @@ app.get('/BodySystems/Lesson1', function(req,res){
 		});
 })
 
+printStufff = function(){
+	console.log('sds');
+}
 
-
+lockCheck = function(completed){
+	if (users[0].lessons.indexOf('newton1') >= 0){
+		console.log("true");
+		return true;
+	}
+	else{
+		console.log("false");
+		return false;
+	}
+}
 //
 app.listen(3000);
