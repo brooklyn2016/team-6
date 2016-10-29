@@ -18,9 +18,6 @@ function preload() {
 }
 function setup() {
   createCanvas(800, 600); // width and height in pixels
-  textSize(50);
-  fill('BLUE');
-  text("CLICK THE MOUSE!", width/2, height/2);
   background(128, 128, 128); // background color
   fill('green');
   rect(0,550,800,50);
@@ -28,7 +25,11 @@ function setup() {
   fill('yellow');
   stroke('yellow');
   ellipse(50,50,100,100);
-  
+  fill(255);
+  rect(width/2 -200, (height/2 - 50), 500,65)
+  textSize(50);
+  fill('BLUE');
+  text("CLICK THE MOUSE!", width/2 - 200, height/2);
 }
 
 function draw() {
