@@ -11,6 +11,9 @@ function setup() {
   fill('green');
   rect(0,550,800,50);
   image(pic, x, 500, 50, 50);
+  fill('yellow')
+  stroke('yellow')
+  ellipse(50,50,100,100)
 }
 
 function draw() {
@@ -23,6 +26,10 @@ function draw() {
   rect(0,550,800,50);
   
   image(pic, x, 500, 50, 50); 
+  
+  fill('yellow')
+  stroke('yellow')
+  ellipse(50,50,100,100)
 }
 }
 
