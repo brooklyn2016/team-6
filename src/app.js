@@ -109,7 +109,7 @@ app.get('/leaderboard', function(req,res){
 		sorted.reverse();
 		res.render('leaderboard', {sorted:sorted})
 		});
-})
+})git
 
 app.get('/NewtonsLawofMotion', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
