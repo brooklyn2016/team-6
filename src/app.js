@@ -47,7 +47,8 @@ app.post('/register', function(req, res) {
 		username: req.body.username,
 		password: req.body.password,
 		score : 0,
-		progress : 0
+		progress : 0,
+		lessonCompleted : []
 	}).save(function(err, users, count){
 		//console.log(users._id);
 	//	console.log(users);
@@ -120,21 +121,60 @@ app.get('/leaderboard', function(req,res){
 
 app.get('/NewtonsLawofMotion', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('welcome', {progress:users[0].progress,layout:'layout2'});
+			res.render('newton', {progress:users[0].progress,layout:'layout2'});
+		});
+})
+app.get('/NewtonsLawofMotion/Lesson1', function(req,res){
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('newton', {progress:users[0].progress,layout:'layout2'});
+		});
+})
+app.get('/NewtonsLawofMotion/Lesson2', function(req,res){
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('newton', {progress:users[0].progress,layout:'layout2'});
 		});
 })
 app.get('/Kinesiology', function(req,res){
-
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('kinesiology', {progress:users[0].progress,layout:'layout2'});
+		});
+})
+app.get('/Kinesiology/Lesson1', function(req,res){
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('kinesiology', {progress:users[0].progress,layout:'layout2'});
+		});
 })
 app.get('/Soundwaves', function(req,res){
-
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('soundwaves', {progress:users[0].progress,layout:'layout2'});
+		});
+})
+app.get('/Soundwaves/Lesson1', function(req,res){
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('soundwaves', {progress:users[0].progress,layout:'layout2'});
+		});
 })
 app.get('/MaterialScience', function(req,res){
-
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('materialscience', {progress:users[0].progress,layout:'layout2'});
+		});
+})
+app.get('/MaterialScience/Lesson1', function(req,res){
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('materialscience', {progress:users[0].progress,layout:'layout2'});
+		});
 })
 app.get('/BodySystems', function(req,res){
-
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('bodysystems', {progress:users[0].progress,layout:'layout2'});
+		});
 })
+app.get('/BodySystems/Lesson1', function(req,res){
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('bodysystems', {progress:users[0].progress,layout:'layout2'});
+		});
+})
+
 
 
 //

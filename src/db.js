@@ -8,7 +8,8 @@ var User = new mongoose.Schema({
 	username:String,
 	password:String,
 	score: Number,
-	progress: Number
+	progress: Number,
+	lessonCompleted: Array
 
 });
 
