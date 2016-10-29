@@ -6,8 +6,12 @@ var User = new mongoose.Schema({
 	birthday:Date,
 	school:String,
 	username:String,
-	password:String
+	password:String,
+	score: Number,
+	progress: Number
+
 });
+
 
 mongoose.model('User', User);
 mongoose.Promise = global.Promise;
