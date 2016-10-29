@@ -134,9 +134,34 @@ app.get('/NewtonsLawofMotion/Lesson1', function(req,res){
 			res.render('newton_1', {progress:users[0].newton_progress,layout:'layout2'});
 		});
 })
+app.post('/NewtonsLawofMotion/Lesson1', function(req,res){
+		if (req.body.description){
+			User.find({_id: req.session.ids},function(err, users, count){
+				if(users[0].newton_progress == 0){
+					var newScore = users[0].score + 5;
+					var newProgress = users[0].progress + 5;
+					var newNewton_progress = users[0].newton_progress + 25;
+					User.update({_id: req.session.ids},{$set: {score:newScore, progress:newProgress, newton_progress:newNewton_progress}},function(err){
+						 if(err){
+		                    console.log(err);
+		                }
+		                else{
+		                	
+		                   res.redirect('/NewtonsLawofMotion/Lesson2');
+		                }
+            });		
+				}
+			}
+		)}
+		else{
+			res.redirect('/NewtonsLawofMotion')
+		}
+		
+})
 app.get('/NewtonsLawofMotion/Lesson2', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			if(users[0].lessons.indexOf('newton1') >= 0){
+			
+			if(users[0].newton_progress >= 25){
 				res.render('newton_2', {progress:users[0].newton_progress,layout:'layout2'});
 			}
 			else{
@@ -185,9 +210,7 @@ app.get('/BodySystems/Lesson1', function(req,res){
 		});
 })
 
-printStufff = function(){
-	console.log('sds');
-}
+
 
 
 //
