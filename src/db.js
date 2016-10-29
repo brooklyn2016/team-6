@@ -9,6 +9,11 @@ var User = new mongoose.Schema({
 	password:String,
 	score: Number,
 	progress: Number,
+	newton_progress: Number,
+	soundwaves_progress: Number,
+	kinesiology_progress: Number,
+	bodysystems_progress: Number,
+	materialscience_progress: Number,
 	lessons: Array
 
 });

@@ -126,18 +126,18 @@ app.get('/leaderboard', function(req,res){
 
 app.get('/NewtonsLawofMotion', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('newton', {progress:users[0].progress,layout:'layout2',lock:users[0].lessons});
+			res.render('newton', {progress:users[0].newton_progress,layout:'layout2',lock:users[0].lessons});
 		});
 })
 app.get('/NewtonsLawofMotion/Lesson1', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('newton', {progress:users[0].progress,layout:'layout2'});
+			res.render('newton_1', {progress:users[0].newton_progress,layout:'layout2'});
 		});
 })
 app.get('/NewtonsLawofMotion/Lesson2', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
 			if(users[0].lessons.indexOf('newton1') >= 0){
-				res.render('newton', {progress:users[0].progress,layout:'layout2'});
+				res.render('newton_2', {progress:users[0].newton_progress,layout:'layout2'});
 			}
 			else{
 				res.redirect('/NewtonsLawofMotion')
@@ -146,12 +146,12 @@ app.get('/NewtonsLawofMotion/Lesson2', function(req,res){
 })
 app.get('/Kinesiology', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('kinesiology', {progress:users[0].progress,layout:'layout2'});
+			res.render('kinesiology', {progress:users[0].kinesiology_progress,layout:'layout2'});
 		});
 })
 app.get('/Kinesiology/Lesson1', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('kinesiology', {progress:users[0].progress,layout:'layout2'});
+			res.render('kinesiology_1', {progress:users[0].kinesiology_progress,layout:'layout2'});
 		});
 })
 app.get('/Soundwaves', function(req,res){
@@ -161,27 +161,27 @@ app.get('/Soundwaves', function(req,res){
 })
 app.get('/Soundwaves/Lesson1', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('soundwaves', {progress:users[0].progress,layout:'layout2'});
+			res.render('soundwaves_1', {progress:users[0].progress,layout:'layout2'});
 		});
 })
 app.get('/MaterialScience', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('materialscience', {progress:users[0].progress,layout:'layout2'});
+			res.render('materialscience', {progress:users[0].materialscience_progress,layout:'layout2'});
 		});
 })
 app.get('/MaterialScience/Lesson1', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('materialscience', {progress:users[0].progress,layout:'layout2'});
+			res.render('materialscience_1', {progress:users[0].materialscience_progress,layout:'layout2'});
 		});
 })
 app.get('/BodySystems', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('bodysystems', {progress:users[0].progress,layout:'layout2'});
+			res.render('bodysystems', {progress:users[0].bodysystems_progress,layout:'layout2'});
 		});
 })
 app.get('/BodySystems/Lesson1', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('bodysystems', {progress:users[0].progress,layout:'layout2'});
+			res.render('bodysystems_1', {progress:users[0].bodysystems_progress,layout:'layout2'});
 		});
 })
 

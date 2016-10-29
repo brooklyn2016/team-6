@@ -36,8 +36,10 @@
     border-color: blue;
 }
 
-.container {
+.container img:nth-child(2) {
 	text-align: center;
+	width: 1.5em;
+	height: 1.5em;
 }
 #lessonT {
 	font-size: 30px;
@@ -46,8 +48,8 @@
 	border-style: outset;
 	color: black;
 	padding-bottom: 15px;
-
 }
+
 
 #footer {
     bottom: 0;
