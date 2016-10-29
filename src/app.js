@@ -128,7 +128,7 @@ app.get('/leaderboard', function(req,res){
 app.get('/NewtonsLawofMotion', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
 		
-			if(req.session.counter == 0){
+			if(req.session.counter < 2){
 				req.session.counter++;
 				res.render('newton', {progress:users[0].newton_progress,layout:'layout2'});
 			}
