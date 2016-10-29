@@ -98,16 +98,34 @@ function compare(a,b) {
 
 
 app.get('/homepage', function(req,res){
-	res.render('homepage', {layout:'layout2'});
+	res.render('homepage', {layout:'layout2',progress:users[0].progress});
 })
 
 app.get('/leaderboard', function(req,res){
-User.find(function(err, users, count){
+	User.find(function(err, users, count){
 		var sorted = users.sort(compare);
 		sorted.reverse();
 		res.render('leaderboard', {sorted:sorted})
 		});
 })
+
+app.get('/NewtonsLawofMotion', function(req,res){
+		User.find({_id: req.session.ids},function(err, users, count){
+			res.render('welcome', {progress:users[0].progress,layout:'layout2'});
+		});
+}
+app.get('/Kinesiology', function(req,res){
+
+}
+app.get('/Soundwaves', function(req,res){
+
+}
+app.get('/MaterialScience', function(req,res){
+
+}
+app.get('/BodySystems', function(req,res){
+
+}
 
 
 //
