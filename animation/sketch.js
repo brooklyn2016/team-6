@@ -6,6 +6,7 @@ all this stuff
           a
               comment
 */
+var drw = false;
 function preload() {
   pic = loadImage("download.png");
 }
@@ -15,9 +16,13 @@ function setup() {
   fill('green');
   rect(0,550,800,50);
   x = 0;
+  fill('yellow')
+  stroke('yellow')
+  ellipse(50,50,100,100)
 }
 
 function draw() {
+  if(drw == true) {
   fill(255); // foreground color
   
   x = x + 2;
@@ -30,6 +35,13 @@ function draw() {
   
   image(pic, x, y, 50, 50);
   //ellipse( x, y  , 20, 20); // draw
+}
+  fill('yellow')
+  stroke('yellow')
+  ellipse(50,50,100,100)
+}
 
+function mousePressed() {
+  drw = true;
 }
 
