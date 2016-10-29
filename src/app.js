@@ -40,7 +40,6 @@ app.post('/register', function(req, res) {
 	tempObj.birthday = req.body.birthday;
 	tempObj.school = req.body.school;
 	*/
-	console.log(req.body.age);
 	new User({
 		name: req.body.name,
 		age: req.body.age,
@@ -59,6 +58,7 @@ app.post('/register', function(req, res) {
 		//console.log(users._id);
 	//	console.log(users);
 	//	console.log(users._id);
+		req.session.counter = 0;
 		req.session.ids = users._id;
 		res.redirect('/welcome');
 		//res.render('welcome', {user:req.body.username});
@@ -127,12 +127,21 @@ app.get('/leaderboard', function(req,res){
 
 app.get('/NewtonsLawofMotion', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('newton', {progress:users[0].newton_progress,layout:'layout2',lock:users[0].lessons});
+		
+			if(req.session.counter == 0){
+				req.session.counter++;
+				res.render('newton', {progress:users[0].newton_progress,layout:'layout2'});
+			}
+			else{
+				res.render('newton', {progress:users[0].newton_progress,layout:'layout2', opaque: 0});
+			}
 		});
+
 })
 app.get('/NewtonsLawofMotion/Lesson1', function(req,res){
 		User.find({_id: req.session.ids},function(err, users, count){
-			res.render('newton_1', {progress:users[0].newton_progress,layout:'layout2'});
+				res.render('newton_1', {progress:users[0].newton_progress,layout:'layout2'});
+			
 		});
 })
 app.post('/NewtonsLawofMotion/Lesson1', function(req,res){

@@ -7,8 +7,8 @@
 	border-style:outset;
 	padding: 10px;
 	/*background-image: url('http://assets.nydailynews.com/polopoly_fs/1.2544779.1456503357!/img/httpImage/image.jpg_gen/derivatives/article_750/153620136.jpg');*/
-	background-image: url("logowords.svg");
-	background-position: 10% 40%;
+	background-image: url("bground.svg");
+	/*background-position: 10% 40%;*/
 }
 
 .jumbotron p {
@@ -20,6 +20,8 @@
     height:10px;
     background:blue;
 }*/
+
+
 #bkgrndk {
 	background-image: url('salsa.svg');
 	background-size: cover;
@@ -50,6 +52,24 @@
 	padding-bottom: 15px;
 }
 
+#newton {
+	font-size: 30px;
+	text-align: center;
+	padding-top: 1em;
+	border-style: outset;
+	color: black;
+	padding-bottom: 15px;
+	/*opacity: 0;*/
+	/*margin-top: {{padding}};*/
+}
+
+/*#newton img {
+	opacity: {{opaque}};
+}*/
+
+/*#lessonT img {
+	padding-top: {{padding}}px;
+}*/
 
 #footer {
     bottom: 0;
