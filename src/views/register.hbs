@@ -1,9 +1,27 @@
-<form method="POST" action ="">
-Please Fill Out the Following Information
-Name <input type = 'text' name = "name">
-Birthday <input type = "date" name = "birthday">
-School <input type = "text" name = "school">
-Username <input type = "text" name ="username">
-Password <input type = "password" name = "password">
-<input type="submit" value = "Create">
-</form>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<div class="jumbotron">
+	<div class="container">
+		<form method="POST" action ="">
+			<div class="row">
+				<div class="col-md-12"style="padding-left:5em;">
+					<h3>Please Fill Out the Following Information:</h3>
+				</div>
+				<div class="col-md-6"style="padding-left:5em;">
+					<p>Name <input type = 'text' name = "name">
+				</div>
+				<div class="col-md-6">
+					<p>Birthday <input type = "date" name = "birthday"></p>
+				</div>
+				<div class="col-md-12">
+					<p>School</p> <input type = "text" name = "school">
+					<p>Username</p> <input type = "text" name ="username">
+					<p>Password</p> <input type = "password" name = "password">
+					<div style="padding-top: 5px; padding-bottom: 5px;"><input type="submit"class="btn btn-secondary btn-lg" value = "Create"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
