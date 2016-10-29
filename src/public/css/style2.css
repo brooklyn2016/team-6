@@ -15,10 +15,17 @@
 	font-size: 28px;
 }
 
-.rectangle {
+/*.rectangle {
 	width:200px;
     height:10px;
     background:blue;
+}*/
+#bkgrndk {
+	background-image: url('salsa.svg');
+	background-size: cover;
+}
+#bkgrndk a {
+	color: #F90949;
 }
 #background {
 	background-image: url("handshake.svg");
@@ -37,6 +44,9 @@
 	text-align: center;
 	padding-top: 1em;
 	border-style: outset;
+	color: black;
+	padding-bottom: 15px;
+
 }
 
 #footer {
