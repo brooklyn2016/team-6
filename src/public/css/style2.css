@@ -10,3 +10,27 @@
 	background-image: url("logowords.svg");
 	background-position: 10% 40%;
 }
+
+.jumbotron p {
+	font-size: 28px;
+}
+
+#background {
+	background-image: url("handshake.svg");
+	background-size: cover;
+}
+.navbar-default {
+	width:auto;
+    border-color: blue;
+}
+
+.container {
+	text-align: center;
+}
+#lessonT {
+	font-size: 30px;
+	text-align: center;
+	padding-top: 1em;
+	border-style: outset;
+
+}
