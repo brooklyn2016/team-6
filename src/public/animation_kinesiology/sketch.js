@@ -12,10 +12,11 @@ function setup() {
   createCanvas(800, 600);
   background(NFLbg); // background color
   image(pic1, x, 450, 100, 100);
+  fill(255);
+  rect(width/2 -200, (height/2 - 50), 500,65)
   textSize(50);
   fill('BLUE');
   text("CLICK THE MOUSE!", width/2 - 200, height/2);
- 
 }
 
 function draw() {
