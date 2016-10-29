@@ -72,7 +72,20 @@ app.get('/welcome', function(req,res){
 
 
 app.get('/login', function(req,res){
+	res.render('login');
+})
 
+app.post('/login', function(req,res){
+
+	User.find({username: req.body.username, password: req.body.password},function(err, users, count){
+		console.log(users);
+		if(users == []){
+			res.redirect('/login');
+		}
+		else{
+			res.redirect('/');
+		}
+		});
 })
 
 app.listen(3000);
