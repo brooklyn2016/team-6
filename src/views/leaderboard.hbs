@@ -1,5 +1,28 @@
-<ol>
-{{#each sorted}}
-<li> {{this.name}}  {{this.score}} </li>
-{{/each}}
-</ol>
+<link rel="stylesheet" type="text/css" href="css/style2.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{{size}}
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Username</th>
+      <th>Point Total</th>
+    </tr>
+  </thead>
+  <tbody>
+	{{#each sorted}}
+    <tr>
+      <th scope="row">{{size}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.score}}</td>
+    {{/each}}
+    </tr>
+   </tbody>
+</table>
+<!-- 
+	<ol>
+	{{#each sorted}}
+
+	<li> {{this.name}} {{this.score}} </li>
+	{{/each}}
+	</ol> -->

@@ -115,7 +115,8 @@ app.get('/leaderboard', function(req,res){
 	User.find(function(err, users, count){
 		var sorted = users.sort(compare);
 		sorted.reverse();
-		res.render('leaderboard', {sorted:sorted,layout:'layout2'})
+		var size = 0;
+		res.render('leaderboard', {sorted:sorted,layout:'layout2', size: sorted.length});
 		});
 })
 
