@@ -88,6 +88,14 @@ app.post('/login', function(req,res){
 		}
 		});
 })
+function compare(a,b) {
+  if (a.score < b.score)
+    return -1;
+  if (a.score > b.score)
+    return 1;
+  return 0;
+}
+
 
 app.get('/homepage', function(req,res){
 	res.render('homepage', {layout:'layout2'});
@@ -95,13 +103,9 @@ app.get('/homepage', function(req,res){
 
 app.get('/leaderboard', function(req,res){
 User.find(function(err, users, count){
-		var sorted = [];
-		for (var i=0; i<users.length; i++){
-			sorted.push(users[i].score);
-		}
-		sorted.sort();
+		var sorted = users.sort(compare);
 		sorted.reverse();
-		console.log(sorted);
+		res.render('leaderboard', {sorted:sorted})
 		});
 })
 
