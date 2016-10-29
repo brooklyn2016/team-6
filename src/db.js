@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 var User = new mongoose.Schema({
 	name:String,
-	birthday:Date,
+	Age:Boolean,
 	school:String,
 	username:String,
 	password:String,

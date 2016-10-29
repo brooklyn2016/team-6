@@ -42,7 +42,7 @@ app.post('/register', function(req, res) {
 	*/
 	new User({
 		name: req.body.name,
-		birthday: req.body.birthday,
+		age: req.body.age,
 		school: req.body.school,
 		username: req.body.username,
 		password: req.body.password,
