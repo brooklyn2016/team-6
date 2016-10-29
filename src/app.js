@@ -10,3 +10,13 @@ app.set('view engine', 'hbs');
 app.get('/', function(req,res){
 	res.render('home');
 })
+
+app.get('/register',function(req,res){
+
+})
+
+app.get('/login', function(req,res){
+
+})
+
+app.listen(3000);
