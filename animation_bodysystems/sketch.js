@@ -1,5 +1,5 @@
-var thestuff = new Array(20);
-var thenum = new Array(20);
+var thestuff = new Array(30);
+var thenum = new Array(30);
 var foodPics, fork, back, calcur, curfood;
 var countdown;
 var currentTime;
@@ -11,7 +11,7 @@ function preload() {
   foodPics = [loadImage("egg_PNG49.png"), loadImage("bread.png"), loadImage("Bacon.png"), 
   loadImage("Sausage.png"), loadImage("Shredded-Cheese.png"), loadImage("juice_PNG7183.png"), 
   loadImage("milk.png"), loadImage("em_butter.png"), loadImage("bagel.png"), loadImage("banana.png"),
-  loadImage("strawberry.png")];
+  loadImage("strawberry.png"), loadImage("apple.png")];
   fork = loadImage("fork_PNG3063.png");
 }
 
@@ -89,10 +89,13 @@ function draw() {
           calcur = calcur + 49;
           curfood = "Strawberry"
         }
-        
+        if(thenum[i] == 11){
+          calcur = calcur + 116;
+          curfood = "Apple"
+        }
+        thenum.splice(i, 1);
       }
     }
-
   }
   else
   {
