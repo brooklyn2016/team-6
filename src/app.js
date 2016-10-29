@@ -48,7 +48,12 @@ app.post('/register', function(req, res) {
 		password: req.body.password,
 		score : 0,
 		progress : 0,
-		lessons : []
+		lessons : [],
+		newton_progress: 0,
+		soundwaves_progress: 0,
+		kinesiology_progress: 0,
+		bodysystems_progress: 0,
+		materialscience_progress: 0
 	}).save(function(err, users, count){
 		//console.log(users._id);
 	//	console.log(users);
@@ -184,15 +189,6 @@ printStufff = function(){
 	console.log('sds');
 }
 
-lockCheck = function(completed){
-	if (users[0].lessons.indexOf('newton1') >= 0){
-		console.log("true");
-		return true;
-	}
-	else{
-		console.log("false");
-		return false;
-	}
-}
+
 //
 app.listen(3000);
