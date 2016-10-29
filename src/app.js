@@ -62,7 +62,7 @@ app.get('/welcome', function(req,res){
 	//console.log(req.session.ids);
 
 	User.find({_id: req.session.ids},function(err, users, count){
-			console.log(users);
+			//console.log(users);
 		//	console.log({user[0]:users.username});
 			res.render('welcome', {user:users[0].username});
 		});
@@ -78,14 +78,23 @@ app.get('/login', function(req,res){
 app.post('/login', function(req,res){
 
 	User.find({username: req.body.username, password: req.body.password},function(err, users, count){
-		console.log(users);
-		if(users == []){
+		//console.log(users);
+		//console.log(users[0]);
+		if(users[0] == undefined){
 			res.redirect('/login');
 		}
 		else{
 			res.redirect('/');
 		}
 		});
+})
+
+app.get('/homepage', function(req,res){
+	res.render('homepage', {layout:'layout2'});
+})
+
+app.get('/leaderboard', function(req,res){
+	
 })
 //
 app.listen(3000);
