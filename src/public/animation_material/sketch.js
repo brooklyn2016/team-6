@@ -18,13 +18,17 @@ function preload() {
 }
 function setup() {
   createCanvas(800, 600); // width and height in pixels
+  textSize(50);
+  fill('BLUE');
+  text("CLICK THE MOUSE!", width/2, height/2);
   background(128, 128, 128); // background color
   fill('green');
   rect(0,550,800,50);
   x = 0;
-  fill('yellow')
-  stroke('yellow')
-  ellipse(50,50,100,100)
+  fill('yellow');
+  stroke('yellow');
+  ellipse(50,50,100,100);
+  
 }
 
 function draw() {
